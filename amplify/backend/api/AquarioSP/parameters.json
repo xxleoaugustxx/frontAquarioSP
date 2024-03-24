@@ -1,0 +1,6 @@
+{
+  "AppSyncApiName": "AquarioSP",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthModeLastUpdated": "2024-03-24T03:47:04.948Z"
+}
