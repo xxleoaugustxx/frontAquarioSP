@@ -10,7 +10,7 @@ import { getOverrideProps, useNavigateAction } from "./utils";
 import { Image, Text, View } from "@aws-amplify/ui-react";
 export default function Animal(props) {
   const { animal, overrides, ...rest } = props;
-  const xOnClick = useNavigateAction({ type: "url", url: "/" });
+  const xOnClick = useNavigateAction({ type: "url", url: "/home" });
   return (
     <View
       width="349px"

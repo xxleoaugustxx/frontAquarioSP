@@ -94,7 +94,7 @@ export default function NewPokemon(props) {
       model: Animal,
       schema: schema,
     });
-  const xOnClick = useNavigateAction({ type: "url", url: "/" });
+  const xOnClick = useNavigateAction({ type: "url", url: "/home" });
   return (
     <View
       width="349px"
