@@ -6,16 +6,19 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { Animal } from "../models";
+import { Animal as Animal0 } from "../models";
+import { SortDirection } from "@aws-amplify/datastore";
 import { getOverrideProps, useDataStoreBinding } from "./utils";
-import Manausoverview from "./Manausoverview";
+import Animal from "./Animal";
 import { Collection } from "@aws-amplify/ui-react";
-export default function ManausOverviewCollection(props) {
+export default function AnimalCollection(props) {
   const { items: itemsProp, overrideItems, overrides, ...rest } = props;
+  const itemsPagination = { sort: (s) => s.especie(SortDirection.ASCENDING) };
   const [items, setItems] = React.useState(undefined);
   const itemsDataStore = useDataStoreBinding({
     type: "collection",
-    model: Animal,
+    model: Animal0,
+    pagination: itemsPagination,
   }).items;
   React.useEffect(() => {
     if (itemsProp !== undefined) {
@@ -26,26 +29,23 @@ export default function ManausOverviewCollection(props) {
   }, [itemsProp, itemsDataStore]);
   return (
     <Collection
-      type="grid"
+      type="list"
       isSearchable="true"
       isPaginated={true}
       searchPlaceholder="Search..."
-      itemsPerPage={6}
-      templateColumns="1fr 1fr 1fr"
-      autoFlow="row"
-      alignItems="stretch"
-      justifyContent="stretch"
+      itemsPerPage={1}
+      direction="row"
+      alignItems="center"
       items={items || []}
-      {...getOverrideProps(overrides, "ManausOverviewCollection")}
+      {...getOverrideProps(overrides, "AnimalCollection")}
       {...rest}
     >
       {(item, index) => (
-        <Manausoverview
+        <Animal
           animal={item}
-          margin="10px 10px 10px 10px"
           key={item.id}
           {...(overrideItems && overrideItems({ item, index }))}
-        ></Manausoverview>
+        ></Animal>
       )}
     </Collection>
   );

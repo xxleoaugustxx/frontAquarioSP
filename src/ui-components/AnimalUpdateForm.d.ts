@@ -32,9 +32,11 @@ export declare type AnimalUpdateFormInputValues = {
     habitat?: string;
     imagem?: string;
     comentarios?: string;
-    grupo?: string;
+    alimentacao?: string;
     cor?: string;
-    corG?: string;
+    especialista?: string;
+    tamanho?: string;
+    peso?: string;
 };
 export declare type AnimalUpdateFormValidationValues = {
     nome?: ValidationFunction<string>;
@@ -46,9 +48,11 @@ export declare type AnimalUpdateFormValidationValues = {
     habitat?: ValidationFunction<string>;
     imagem?: ValidationFunction<string>;
     comentarios?: ValidationFunction<string>;
-    grupo?: ValidationFunction<string>;
+    alimentacao?: ValidationFunction<string>;
     cor?: ValidationFunction<string>;
-    corG?: ValidationFunction<string>;
+    especialista?: ValidationFunction<string>;
+    tamanho?: ValidationFunction<string>;
+    peso?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type AnimalUpdateFormOverridesProps = {
@@ -62,9 +66,11 @@ export declare type AnimalUpdateFormOverridesProps = {
     habitat?: PrimitiveOverrideProps<TextFieldProps>;
     imagem?: PrimitiveOverrideProps<TextFieldProps>;
     comentarios?: PrimitiveOverrideProps<TextFieldProps>;
-    grupo?: PrimitiveOverrideProps<TextFieldProps>;
+    alimentacao?: PrimitiveOverrideProps<TextFieldProps>;
     cor?: PrimitiveOverrideProps<TextFieldProps>;
-    corG?: PrimitiveOverrideProps<TextFieldProps>;
+    especialista?: PrimitiveOverrideProps<TextFieldProps>;
+    tamanho?: PrimitiveOverrideProps<TextFieldProps>;
+    peso?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type AnimalUpdateFormProps = React.PropsWithChildren<{
     overrides?: AnimalUpdateFormOverridesProps | undefined | null;

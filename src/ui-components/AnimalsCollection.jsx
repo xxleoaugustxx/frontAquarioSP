@@ -27,8 +27,6 @@ export default function AnimalsCollection(props) {
   return (
     <Collection
       type="list"
-      isSearchable={true}
-      isPaginated={true}
       searchPlaceholder="Search..."
       direction="row"
       alignItems="stretch"
@@ -39,6 +37,7 @@ export default function AnimalsCollection(props) {
       {(item, index) => (
         <Floresta
           animal={item}
+          margin="0 20px 0 0"
           key={item.id}
           {...(overrideItems && overrideItems({ item, index }))}
         ></Floresta>

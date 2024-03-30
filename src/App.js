@@ -1,17 +1,24 @@
-import {
-  AnimalsCollection 
- } from './ui-components';
- import { Amplify } from 'aws-amplify';
- import { withAuthenticator } from '@aws-amplify/ui-react';
+import { Amplify } from 'aws-amplify';
+import "./App.css"
 import '@aws-amplify/ui-react/styles.css';
 import config from './amplifyconfiguration.json';
-Amplify.configure(config);
+import {
+  Pokedex,
+  ManausOverviewCollection 
+} from './ui-components';
+import { ThemeProvider } from "@aws-amplify/ui-react";
+import { studioTheme } from "./ui-components";
+import { withAuthenticator } from '@aws-amplify/ui-react';
+Amplify.configure(config)
 
 function App() {
-  return (
-    <div className="App">
-    <AnimalsCollection />
+  return (     
+    <ThemeProvider theme={studioTheme}>
+      <div className="sla">
+    <Pokedex />
+    <ManausOverviewCollection />
     </div>
+    </ThemeProvider>
   );
 }
 

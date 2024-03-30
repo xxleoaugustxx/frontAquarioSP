@@ -6,18 +6,10 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps, useNavigateAction } from "./utils";
+import { getOverrideProps } from "./utils";
 import { Image, Text, View } from "@aws-amplify/ui-react";
-export default function Manausoverview(props) {
-  const { animal, cor, overrides, ...rest } = props;
-  const rectangleOneOneSixSevenOnClick = useNavigateAction({
-    type: "url",
-    url: "/overview",
-  });
-  const preguiaTwoOnClick = useNavigateAction({
-    type: "url",
-    url: "/overview",
-  });
+export default function Overview(props) {
+  const { animal, overrides, ...rest } = props;
   return (
     <View
       width="349px"
@@ -28,7 +20,7 @@ export default function Manausoverview(props) {
       justifyContent="unset"
       position="relative"
       padding="0px 0px 0px 0px"
-      {...getOverrideProps(overrides, "Manausoverview")}
+      {...getOverrideProps(overrides, "Overview")}
       {...rest}
     >
       <View
@@ -46,10 +38,7 @@ export default function Manausoverview(props) {
         borderRadius="50px"
         padding="0px 0px 0px 0px"
         backgroundColor={animal?.cor}
-        onClick={() => {
-          rectangleOneOneSixSevenOnClick();
-        }}
-        {...getOverrideProps(overrides, "Rectangle 1167")}
+        {...getOverrideProps(overrides, "Rectangle 1168")}
       ></View>
       <Image
         width="52.72%"
@@ -66,10 +55,7 @@ export default function Manausoverview(props) {
         padding="0px 0px 0px 0px"
         objectFit="cover"
         src={animal?.imagem}
-        onClick={() => {
-          preguiaTwoOnClick();
-        }}
-        {...getOverrideProps(overrides, "pregui\u00E7a 2")}
+        {...getOverrideProps(overrides, "pregui\u00E7a 3")}
       ></Image>
       <Text
         fontFamily="Inter"
@@ -116,7 +102,7 @@ export default function Manausoverview(props) {
         right="60.17%"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
-        children={animal?.especie}
+        children={animal?.nome}
         {...getOverrideProps(overrides, "Bicho-Pregui\u00E7a")}
       ></Text>
       <View
@@ -133,8 +119,10 @@ export default function Manausoverview(props) {
         right="70.77%"
         borderRadius="50px"
         padding="0px 0px 0px 0px"
-        backgroundColor={animal?.corG}
-        {...getOverrideProps(overrides, "Rectangle 1165")}
+        backgroundColor={
+          animal?.alimentacao == "Herbivoro" ? "#41B507" : "#CD2D0A"
+        }
+        {...getOverrideProps(overrides, "Rectangle 1169")}
       ></View>
       <Text
         fontFamily="Inter"
@@ -157,7 +145,7 @@ export default function Manausoverview(props) {
         right="58.17%"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
-        children={animal?.grupo}
+        children={animal?.alimentacao}
         {...getOverrideProps(overrides, "Herbivoro")}
       ></Text>
     </View>

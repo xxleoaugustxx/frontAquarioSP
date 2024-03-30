@@ -32,9 +32,11 @@ export default function AnimalUpdateForm(props) {
     habitat: "",
     imagem: "",
     comentarios: "",
-    grupo: "",
+    alimentacao: "",
     cor: "",
-    corG: "",
+    especialista: "",
+    tamanho: "",
+    peso: "",
   };
   const [nome, setNome] = React.useState(initialValues.nome);
   const [registro, setRegistro] = React.useState(initialValues.registro);
@@ -49,9 +51,15 @@ export default function AnimalUpdateForm(props) {
   const [comentarios, setComentarios] = React.useState(
     initialValues.comentarios
   );
-  const [grupo, setGrupo] = React.useState(initialValues.grupo);
+  const [alimentacao, setAlimentacao] = React.useState(
+    initialValues.alimentacao
+  );
   const [cor, setCor] = React.useState(initialValues.cor);
-  const [corG, setCorG] = React.useState(initialValues.corG);
+  const [especialista, setEspecialista] = React.useState(
+    initialValues.especialista
+  );
+  const [tamanho, setTamanho] = React.useState(initialValues.tamanho);
+  const [peso, setPeso] = React.useState(initialValues.peso);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     const cleanValues = animalRecord
@@ -66,9 +74,11 @@ export default function AnimalUpdateForm(props) {
     setHabitat(cleanValues.habitat);
     setImagem(cleanValues.imagem);
     setComentarios(cleanValues.comentarios);
-    setGrupo(cleanValues.grupo);
+    setAlimentacao(cleanValues.alimentacao);
     setCor(cleanValues.cor);
-    setCorG(cleanValues.corG);
+    setEspecialista(cleanValues.especialista);
+    setTamanho(cleanValues.tamanho);
+    setPeso(cleanValues.peso);
     setErrors({});
   };
   const [animalRecord, setAnimalRecord] = React.useState(animalModelProp);
@@ -92,9 +102,11 @@ export default function AnimalUpdateForm(props) {
     habitat: [],
     imagem: [{ type: "URL" }],
     comentarios: [],
-    grupo: [],
+    alimentacao: [],
     cor: [],
-    corG: [],
+    especialista: [],
+    tamanho: [],
+    peso: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -131,9 +143,11 @@ export default function AnimalUpdateForm(props) {
           habitat,
           imagem,
           comentarios,
-          grupo,
+          alimentacao,
           cor,
-          corG,
+          especialista,
+          tamanho,
+          peso,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -198,9 +212,11 @@ export default function AnimalUpdateForm(props) {
               habitat,
               imagem,
               comentarios,
-              grupo,
+              alimentacao,
               cor,
-              corG,
+              especialista,
+              tamanho,
+              peso,
             };
             const result = onChange(modelFields);
             value = result?.nome ?? value;
@@ -233,9 +249,11 @@ export default function AnimalUpdateForm(props) {
               habitat,
               imagem,
               comentarios,
-              grupo,
+              alimentacao,
               cor,
-              corG,
+              especialista,
+              tamanho,
+              peso,
             };
             const result = onChange(modelFields);
             value = result?.registro ?? value;
@@ -272,9 +290,11 @@ export default function AnimalUpdateForm(props) {
               habitat,
               imagem,
               comentarios,
-              grupo,
+              alimentacao,
               cor,
-              corG,
+              especialista,
+              tamanho,
+              peso,
             };
             const result = onChange(modelFields);
             value = result?.idade ?? value;
@@ -307,9 +327,11 @@ export default function AnimalUpdateForm(props) {
               habitat,
               imagem,
               comentarios,
-              grupo,
+              alimentacao,
               cor,
-              corG,
+              especialista,
+              tamanho,
+              peso,
             };
             const result = onChange(modelFields);
             value = result?.especie ?? value;
@@ -346,9 +368,11 @@ export default function AnimalUpdateForm(props) {
               habitat,
               imagem,
               comentarios,
-              grupo,
+              alimentacao,
               cor,
-              corG,
+              especialista,
+              tamanho,
+              peso,
             };
             const result = onChange(modelFields);
             value = result?.temperaturaIdeal ?? value;
@@ -385,9 +409,11 @@ export default function AnimalUpdateForm(props) {
               habitat,
               imagem,
               comentarios,
-              grupo,
+              alimentacao,
               cor,
-              corG,
+              especialista,
+              tamanho,
+              peso,
             };
             const result = onChange(modelFields);
             value = result?.bpmIdeal ?? value;
@@ -420,9 +446,11 @@ export default function AnimalUpdateForm(props) {
               habitat: value,
               imagem,
               comentarios,
-              grupo,
+              alimentacao,
               cor,
-              corG,
+              especialista,
+              tamanho,
+              peso,
             };
             const result = onChange(modelFields);
             value = result?.habitat ?? value;
@@ -455,9 +483,11 @@ export default function AnimalUpdateForm(props) {
               habitat,
               imagem: value,
               comentarios,
-              grupo,
+              alimentacao,
               cor,
-              corG,
+              especialista,
+              tamanho,
+              peso,
             };
             const result = onChange(modelFields);
             value = result?.imagem ?? value;
@@ -490,9 +520,11 @@ export default function AnimalUpdateForm(props) {
               habitat,
               imagem,
               comentarios: value,
-              grupo,
+              alimentacao,
               cor,
-              corG,
+              especialista,
+              tamanho,
+              peso,
             };
             const result = onChange(modelFields);
             value = result?.comentarios ?? value;
@@ -508,10 +540,10 @@ export default function AnimalUpdateForm(props) {
         {...getOverrideProps(overrides, "comentarios")}
       ></TextField>
       <TextField
-        label="Grupo"
+        label="Alimentacao"
         isRequired={false}
         isReadOnly={false}
-        value={grupo}
+        value={alimentacao}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -525,22 +557,24 @@ export default function AnimalUpdateForm(props) {
               habitat,
               imagem,
               comentarios,
-              grupo: value,
+              alimentacao: value,
               cor,
-              corG,
+              especialista,
+              tamanho,
+              peso,
             };
             const result = onChange(modelFields);
-            value = result?.grupo ?? value;
+            value = result?.alimentacao ?? value;
           }
-          if (errors.grupo?.hasError) {
-            runValidationTasks("grupo", value);
+          if (errors.alimentacao?.hasError) {
+            runValidationTasks("alimentacao", value);
           }
-          setGrupo(value);
+          setAlimentacao(value);
         }}
-        onBlur={() => runValidationTasks("grupo", grupo)}
-        errorMessage={errors.grupo?.errorMessage}
-        hasError={errors.grupo?.hasError}
-        {...getOverrideProps(overrides, "grupo")}
+        onBlur={() => runValidationTasks("alimentacao", alimentacao)}
+        errorMessage={errors.alimentacao?.errorMessage}
+        hasError={errors.alimentacao?.hasError}
+        {...getOverrideProps(overrides, "alimentacao")}
       ></TextField>
       <TextField
         label="Cor"
@@ -560,9 +594,11 @@ export default function AnimalUpdateForm(props) {
               habitat,
               imagem,
               comentarios,
-              grupo,
+              alimentacao,
               cor: value,
-              corG,
+              especialista,
+              tamanho,
+              peso,
             };
             const result = onChange(modelFields);
             value = result?.cor ?? value;
@@ -578,10 +614,10 @@ export default function AnimalUpdateForm(props) {
         {...getOverrideProps(overrides, "cor")}
       ></TextField>
       <TextField
-        label="Cor g"
+        label="Especialista"
         isRequired={false}
         isReadOnly={false}
-        value={corG}
+        value={especialista}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -595,22 +631,98 @@ export default function AnimalUpdateForm(props) {
               habitat,
               imagem,
               comentarios,
-              grupo,
+              alimentacao,
               cor,
-              corG: value,
+              especialista: value,
+              tamanho,
+              peso,
             };
             const result = onChange(modelFields);
-            value = result?.corG ?? value;
+            value = result?.especialista ?? value;
           }
-          if (errors.corG?.hasError) {
-            runValidationTasks("corG", value);
+          if (errors.especialista?.hasError) {
+            runValidationTasks("especialista", value);
           }
-          setCorG(value);
+          setEspecialista(value);
         }}
-        onBlur={() => runValidationTasks("corG", corG)}
-        errorMessage={errors.corG?.errorMessage}
-        hasError={errors.corG?.hasError}
-        {...getOverrideProps(overrides, "corG")}
+        onBlur={() => runValidationTasks("especialista", especialista)}
+        errorMessage={errors.especialista?.errorMessage}
+        hasError={errors.especialista?.hasError}
+        {...getOverrideProps(overrides, "especialista")}
+      ></TextField>
+      <TextField
+        label="Tamanho"
+        isRequired={false}
+        isReadOnly={false}
+        value={tamanho}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              nome,
+              registro,
+              idade,
+              especie,
+              temperaturaIdeal,
+              bpmIdeal,
+              habitat,
+              imagem,
+              comentarios,
+              alimentacao,
+              cor,
+              especialista,
+              tamanho: value,
+              peso,
+            };
+            const result = onChange(modelFields);
+            value = result?.tamanho ?? value;
+          }
+          if (errors.tamanho?.hasError) {
+            runValidationTasks("tamanho", value);
+          }
+          setTamanho(value);
+        }}
+        onBlur={() => runValidationTasks("tamanho", tamanho)}
+        errorMessage={errors.tamanho?.errorMessage}
+        hasError={errors.tamanho?.hasError}
+        {...getOverrideProps(overrides, "tamanho")}
+      ></TextField>
+      <TextField
+        label="Peso"
+        isRequired={false}
+        isReadOnly={false}
+        value={peso}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              nome,
+              registro,
+              idade,
+              especie,
+              temperaturaIdeal,
+              bpmIdeal,
+              habitat,
+              imagem,
+              comentarios,
+              alimentacao,
+              cor,
+              especialista,
+              tamanho,
+              peso: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.peso ?? value;
+          }
+          if (errors.peso?.hasError) {
+            runValidationTasks("peso", value);
+          }
+          setPeso(value);
+        }}
+        onBlur={() => runValidationTasks("peso", peso)}
+        errorMessage={errors.peso?.errorMessage}
+        hasError={errors.peso?.hasError}
+        {...getOverrideProps(overrides, "peso")}
       ></TextField>
       <Flex
         justifyContent="space-between"

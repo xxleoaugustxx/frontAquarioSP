@@ -6,10 +6,11 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "./utils";
+import { getOverrideProps, useNavigateAction } from "./utils";
 import { Image, Text, View } from "@aws-amplify/ui-react";
-export default function Floresta(props) {
-  const { animal, especialista, overrides, ...rest } = props;
+export default function Animal(props) {
+  const { animal, overrides, ...rest } = props;
+  const xOnClick = useNavigateAction({ type: "url", url: "/" });
   return (
     <View
       width="349px"
@@ -20,7 +21,7 @@ export default function Floresta(props) {
       justifyContent="unset"
       position="relative"
       padding="0px 0px 0px 0px"
-      {...getOverrideProps(overrides, "Floresta")}
+      {...getOverrideProps(overrides, "Animal")}
       {...rest}
     >
       <View
@@ -71,7 +72,9 @@ export default function Floresta(props) {
         right="73.35%"
         borderRadius="50px"
         padding="0px 0px 0px 0px"
-        backgroundColor={animal?.grupo == "Herbivoro" ? "#41B507" : "#CD2D0A"}
+        backgroundColor={
+          animal?.alimentacao == "Herbivoro" ? "#41B507" : "#CD2D0A"
+        }
         {...getOverrideProps(overrides, "Rectangle 1165")}
       ></View>
       <Image
@@ -329,7 +332,7 @@ export default function Floresta(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children={animal?.especie}
-        {...getOverrideProps(overrides, "loriem38463965")}
+        {...getOverrideProps(overrides, "loriem38872173")}
       ></Text>
       <Text
         fontFamily="Inter"
@@ -353,7 +356,7 @@ export default function Floresta(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children={animal?.idade}
-        {...getOverrideProps(overrides, "loriem38463966")}
+        {...getOverrideProps(overrides, "loriem38872174")}
       ></Text>
       <Text
         fontFamily="Inter"
@@ -377,7 +380,7 @@ export default function Floresta(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children={animal?.habitat}
-        {...getOverrideProps(overrides, "loriem38463967")}
+        {...getOverrideProps(overrides, "loriem38872175")}
       ></Text>
       <Text
         fontFamily="Inter"
@@ -400,8 +403,8 @@ export default function Floresta(props) {
         right="6.59%"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
-        children={especialista?.nome}
-        {...getOverrideProps(overrides, "loriem38463972")}
+        children={animal?.especialista}
+        {...getOverrideProps(overrides, "loriem38872176")}
       ></Text>
       <Text
         fontFamily="Inter"
@@ -448,8 +451,8 @@ export default function Floresta(props) {
         right="6.59%"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
-        children="loriem"
-        {...getOverrideProps(overrides, "loriem38841282")}
+        children={animal?.peso}
+        {...getOverrideProps(overrides, "loriem38872178")}
       ></Text>
       <Text
         fontFamily="Inter"
@@ -496,8 +499,8 @@ export default function Floresta(props) {
         right="6.59%"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
-        children="loriem"
-        {...getOverrideProps(overrides, "loriem38841340")}
+        children={animal?.tamanho}
+        {...getOverrideProps(overrides, "loriem38872180")}
       ></Text>
       <Text
         fontFamily="Inter"
@@ -520,8 +523,8 @@ export default function Floresta(props) {
         right="6.59%"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
-        children="loriem"
-        {...getOverrideProps(overrides, "loriem38841401")}
+        children={animal?.comentarios}
+        {...getOverrideProps(overrides, "loriem38872181")}
       ></Text>
       <Text
         fontFamily="Inter"
@@ -545,7 +548,7 @@ export default function Floresta(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children={animal?.temperaturaIdeal}
-        {...getOverrideProps(overrides, "loriem38463969")}
+        {...getOverrideProps(overrides, "loriem38872182")}
       ></Text>
       <Text
         fontFamily="Inter"
@@ -569,7 +572,7 @@ export default function Floresta(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children={animal?.bpmIdeal}
-        {...getOverrideProps(overrides, "loriem38463970")}
+        {...getOverrideProps(overrides, "loriem38872183")}
       ></Text>
       <Text
         fontFamily="Inter"
@@ -592,7 +595,7 @@ export default function Floresta(props) {
         right="75.07%"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
-        children={animal?.grupo}
+        children={animal?.alimentacao}
         {...getOverrideProps(overrides, "Herbivoro")}
       ></Text>
       <Text
@@ -665,6 +668,9 @@ export default function Floresta(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="X"
+        onClick={() => {
+          xOnClick();
+        }}
         {...getOverrideProps(overrides, "X")}
       ></Text>
     </View>

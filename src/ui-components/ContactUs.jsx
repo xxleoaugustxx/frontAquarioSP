@@ -6,7 +6,9 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "./utils";
+import { getOverrideProps, useDataStoreCreateAction } from "./utils";
+import { Animal } from "../models";
+import { schema } from "../models/schema";
 import {
   Button,
   CheckboxField,
@@ -18,6 +20,11 @@ import {
 import MyIcon from "./MyIcon";
 export default function ContactUs(props) {
   const { overrides, ...rest } = props;
+  const buttonOnClick = useDataStoreCreateAction({
+    fields: {},
+    model: Animal,
+    schema: schema,
+  });
   return (
     <Flex
       gap="24px"
@@ -121,6 +128,9 @@ export default function ContactUs(props) {
         isDisabled={false}
         variation="primary"
         children="Send message"
+        onClick={() => {
+          buttonOnClick();
+        }}
         {...getOverrideProps(overrides, "Button")}
       ></Button>
       <Flex

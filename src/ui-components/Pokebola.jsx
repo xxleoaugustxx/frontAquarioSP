@@ -6,10 +6,14 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "./utils";
+import { getOverrideProps, useNavigateAction } from "./utils";
 import { Image, View } from "@aws-amplify/ui-react";
 export default function Pokebola(props) {
   const { overrides, ...rest } = props;
+  const pokebolapokeballpngZeroOneOnClick = useNavigateAction({
+    type: "url",
+    url: "/create",
+  });
   return (
     <View
       width="114px"
@@ -37,6 +41,10 @@ export default function Pokebola(props) {
         right="0%"
         padding="0px 0px 0px 0px"
         objectFit="cover"
+        src="https://raw.githubusercontent.com/xxleoaugustxx/aquariosp/main/Pokebola-pokeball-png-0.png"
+        onClick={() => {
+          pokebolapokeballpngZeroOneOnClick();
+        }}
         {...getOverrideProps(overrides, "Pokebola-pokeball-png-0 1")}
       ></Image>
     </View>

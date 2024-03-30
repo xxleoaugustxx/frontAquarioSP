@@ -5,7 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { Animal, Especialista } from "../models";
+import { Animal } from "../models";
 import { ImageProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
@@ -18,8 +18,8 @@ export declare type Variant = {
     overrides: EscapeHatchProps;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type FlorestaOverridesProps = {
-    Floresta?: PrimitiveOverrideProps<ViewProps>;
+export declare type AnimalOverridesProps = {
+    Animal?: PrimitiveOverrideProps<ViewProps>;
     "Rectangle 1164"?: PrimitiveOverrideProps<ViewProps>;
     "Rectangle 1166"?: PrimitiveOverrideProps<ViewProps>;
     "Rectangle 1165"?: PrimitiveOverrideProps<ViewProps>;
@@ -33,26 +33,25 @@ export declare type FlorestaOverridesProps = {
     "Coment\u00E1rios"?: PrimitiveOverrideProps<TextProps>;
     "Temperatura Ideal"?: PrimitiveOverrideProps<TextProps>;
     "BPM Ideal"?: PrimitiveOverrideProps<TextProps>;
-    loriem38463965?: PrimitiveOverrideProps<TextProps>;
-    loriem38463966?: PrimitiveOverrideProps<TextProps>;
-    loriem38463967?: PrimitiveOverrideProps<TextProps>;
-    loriem38463972?: PrimitiveOverrideProps<TextProps>;
+    loriem38872173?: PrimitiveOverrideProps<TextProps>;
+    loriem38872174?: PrimitiveOverrideProps<TextProps>;
+    loriem38872175?: PrimitiveOverrideProps<TextProps>;
+    loriem38872176?: PrimitiveOverrideProps<TextProps>;
     Peso?: PrimitiveOverrideProps<TextProps>;
-    loriem38841282?: PrimitiveOverrideProps<TextProps>;
+    loriem38872178?: PrimitiveOverrideProps<TextProps>;
     Tamanho?: PrimitiveOverrideProps<TextProps>;
-    loriem38841340?: PrimitiveOverrideProps<TextProps>;
-    loriem38841401?: PrimitiveOverrideProps<TextProps>;
-    loriem38463969?: PrimitiveOverrideProps<TextProps>;
-    loriem38463970?: PrimitiveOverrideProps<TextProps>;
+    loriem38872180?: PrimitiveOverrideProps<TextProps>;
+    loriem38872181?: PrimitiveOverrideProps<TextProps>;
+    loriem38872182?: PrimitiveOverrideProps<TextProps>;
+    loriem38872183?: PrimitiveOverrideProps<TextProps>;
     Herbivoro?: PrimitiveOverrideProps<TextProps>;
     "#001"?: PrimitiveOverrideProps<TextProps>;
     Manaus?: PrimitiveOverrideProps<TextProps>;
     X?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
-export declare type FlorestaProps = React.PropsWithChildren<Partial<ViewProps> & {
+export declare type AnimalProps = React.PropsWithChildren<Partial<ViewProps> & {
     animal?: Animal;
-    especialista?: Especialista;
 } & {
-    overrides?: FlorestaOverridesProps | undefined | null;
+    overrides?: AnimalOverridesProps | undefined | null;
 }>;
-export default function Floresta(props: FlorestaProps): React.ReactElement;
+export default function Animal(props: AnimalProps): React.ReactElement;
