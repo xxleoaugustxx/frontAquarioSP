@@ -11,7 +11,7 @@ import { Image, View } from "@aws-amplify/ui-react";
 export default function Pokedex(props) {
   const { overrides, ...rest } = props;
   const trendingPokedexPngCommaTransparentPngOpenParenthesisOneSixNineZeroxOneTwoZeroSevenCloseParenthesisPinPngOneOnClick =
-    useNavigateAction({ type: "url", url: "/create" });
+    useNavigateAction({ type: "url", url: "/new" });
   return (
     <View
       width="64px"

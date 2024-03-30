@@ -10,7 +10,7 @@ function MainRoutes(){
         <Routes>
             <Route path="/" element={<Home />}/>
             <Route path="/home" element={<Home />}/>
-            <Route path="/create" element={<Create />}/>
+            <Route path="/new" element={<Create />}/>
             <Route path="/overview" element={<Overview />}/>
         </Routes>
     )
